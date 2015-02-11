@@ -1,0 +1,1 @@
+{"license": "", "description": "A place where users can chat.", "contributors": [], "author": "linuxwebdeveloper", "url": "", "dependencies": ["api-utils", "addon-kit"], "version": "initial.rev123", "lib": "lib", "fullName": "Mozilla Chat", "main": "main", "id": "jid0-SZyJB8DJD7zKuPvHTRjCM8nTX3Q", "name": "mozilla-chat"}

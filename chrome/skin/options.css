@@ -1,0 +1,6 @@
+/* global skin ------------------------------------------------------------- */
+@import url(chrome://global/skin/);
+
+radio[pane="pane_general"] {
+  list-style-image: url(chrome://Chat_with_MDN/skin/images/options-big.png);
+}

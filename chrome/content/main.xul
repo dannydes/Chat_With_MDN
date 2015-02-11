@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://Chat_with_MDN/skin/main.css" type="text/css"?>
+
+<!DOCTYPE window SYSTEM "chrome://Chat_with_MDN/locale/main.dtd">
+
+<window id="main" xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        title="&title;" style="width: 700px; height: 500px;" persist="screenX screenY width height sizemode">
+
+  <script type="application/x-javascript" src="chrome://global/content/printUtils.js"/>
+  <script type="application/x-javascript" src="chrome://Chat_with_MDN/content/controller.js"/>
+  <script type="application/x-javascript" src="chrome://Chat_with_MDN/content/main.js"/>
+
+  <commandset id="cmdset_file">
+    <command id="cmd_pageSetup" label="&filePageSetup.label;" oncommand="CommandUpdater.doCommand(this.id);"/>
+    <command id="cmd_print" label="&filePrint.label;" oncommand="CommandUpdater.doCommand(this.id);"/>
+    <command id="cmd_exit" label="&fileExit.label;" oncommand="CommandUpdater.doCommand(this.id);"/>
+  </commandset>
+
+  <commandset id="cmdset_edit">
+    <command id="cmd_copy" label="&editCopy.label;" oncommand="CommandUpdater.doCommand(this.id);"/>
+    <command id="cmd_selectAll" label="&editSelectAll.label;" oncommand="CommandUpdater.doCommand(this.id);"/>
+  </commandset>
+
+  <commandset id="cmdset_tools">
+    <command id="cmd_options" label="&toolsOptions.label;" oncommand="CommandUpdater.doCommand(this.id);"/>
+  </commandset>
+  <commandset id="cmdset_help">
+    <command id="cmd_about" label="&helpAbout.label;" oncommand="CommandUpdater.doCommand(this.id);"/>
+  </commandset>
+
+  <keyset id="keyset_main">
+    <key id="key_copy" key="&editCopy.key;" modifiers="accel" command="cmd_copy"/>
+    <key id="key_selectAll" key="&editSelectAll.key;" modifiers="accel" command="cmd_selectAll"/>
+    <key id="key_print" key="&filePrint.key;" modifiers="accel" command="cmd_print"/>
+  </keyset>
+
+  <popupset>
+  </popupset>
+
+  <toolbox>
+    <menubar id="menubar">
+      <menu id="file_menu" label="&file.label;">
+        <menupopup id="file_popup">
+          <menuitem command="cmd_exit"/>
+        </menupopup>
+      </menu>
+      <menu id="edit_menu" label="&edit.label;">
+        <menupopup id="edit_popup">
+        </menupopup>
+      </menu>
+      <menu id="tools_menu" label="&tools.label;">
+        <menupopup id="tools_popup">
+          <menuitem command="cmd_options"/>
+        </menupopup>
+      </menu>
+      <menu id="help_menu" label="&help.label;">
+        <menupopup id="help_popup">
+          <menuitem command="cmd_about"/>
+        </menupopup>
+      </menu>
+    </menubar>
+    <toolbar id="main-toolbar" mode="icons">
+    </toolbar>
+  </toolbox>
+  <hbox id="main_box" flex="1">
+    <vbox id="sidebar_box" width="150" persist="width hidden">
+      <hbox class="paneheader">
+        <description id="sidebar_title" value="&sidebar.label;" flex="1"/>
+        <toolbarbutton id="sidebar_close" class="tabs-closebutton" tooltiptext="&sidebarClose.tooltip;"/>
+      </hbox>
+      <deck id="sidebar_deck" selectedIndex="0" flex="1">
+        <vbox id="sidebar_page1" label="&page1Title.label;" flex="1">
+          <!-- add content for sidebar here -->
+        </vbox>
+      </deck>
+    </vbox>
+
+    <splitter id="sidebar_split" width="0" persist="hidden"/>
+    <vbox id="workspace_box" flex="1">
+    </vbox>
+  </hbox>
+</window>
